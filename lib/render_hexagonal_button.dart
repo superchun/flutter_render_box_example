@@ -9,14 +9,11 @@ class RenderHexagonalButton extends RenderShiftedBox {
     required double clipSize,
     required EdgeInsets padding,
     required VoidCallback onTap,
-    required this.onPointerDown,
   })  : _color = color,
         _clipSize = clipSize,
         _padding = padding,
         _onTap = onTap,
         super(child);
-
-  final PointerDownEventListener onPointerDown;
 
   Color _color;
   Color get color => _color;
@@ -88,23 +85,6 @@ class RenderHexagonalButton extends RenderShiftedBox {
 
     /// 绘制 child
     super.paint(context, offset);
-  }
-
-  @override
-  bool hitTest(BoxHitTestResult result, {required Offset position}) {
-    final path = _getBorderPath(size);
-    if (!path.contains(position)) {
-      return false;
-    }
-    return super.hitTest(result, position: position);
-  }
-
-  @override
-  void handleEvent(PointerEvent event, covariant BoxHitTestEntry entry) {
-    debugPrint('测试');
-    if (event is PointerDownEvent) {
-      onPointerDown(event);
-    }
   }
 
   Size _computeSize({required BoxConstraints constraints, required ChildLayouter layoutChild}) {

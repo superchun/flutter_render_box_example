@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:render_box/hexagonal_button.dart';
 
@@ -30,12 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late final _tapGestureRecognizer = TapGestureRecognizer()..onTap = _onTap;
-
-  _onTap() {
-    debugPrint('点击了开始。。。。');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.lightBlueAccent,
           clipSize: 20,
           padding: const EdgeInsets.all(4),
-          onTap: _onTap,
-          onPointerDown: _tapGestureRecognizer.addPointer,
+          onTap: () {},
           child: const Text('自定义之旅'),
         ),
       ),

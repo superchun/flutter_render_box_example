@@ -6,7 +6,6 @@ class HexagonalButton extends SingleChildRenderObjectWidget {
   final double clipSize;
   final EdgeInsets padding;
   final VoidCallback onTap;
-  final PointerDownEventListener onPointerDown;
   const HexagonalButton({
     Key? key,
     required Widget child,
@@ -14,7 +13,6 @@ class HexagonalButton extends SingleChildRenderObjectWidget {
     required this.clipSize,
     required this.padding,
     required this.onTap,
-    required this.onPointerDown,
   }) : super(key: key, child: child);
 
   @override
@@ -24,7 +22,6 @@ class HexagonalButton extends SingleChildRenderObjectWidget {
       clipSize: clipSize,
       padding: padding,
       onTap: onTap,
-      onPointerDown: onPointerDown,
     );
   }
 

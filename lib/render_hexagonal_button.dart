@@ -72,21 +72,6 @@ class RenderHexagonalButton extends RenderShiftedBox {
     );
   }
 
-  @override
-  void paint(PaintingContext context, Offset offset) {
-    final path = _getBorderPath(size);
-    final shiftedPath = path.shift(offset);
-    context.canvas.drawPath(
-      shiftedPath,
-      Paint()
-        ..style = PaintingStyle.fill
-        ..color = color,
-    );
-
-    /// 绘制 child
-    super.paint(context, offset);
-  }
-
   Size _computeSize({required BoxConstraints constraints, required ChildLayouter layoutChild}) {
     if (child != null) {
       /// 向下传递约束，向上传递尺寸
@@ -108,17 +93,5 @@ class RenderHexagonalButton extends RenderShiftedBox {
       return constraints.constrain(targetSize);
     }
     return Size(clipSize * 2, 40);
-  }
-
-  Path _getBorderPath(Size size) {
-    final rect = Offset.zero & size;
-    return Path()
-      ..moveTo(rect.centerLeft.dx, rect.centerLeft.dy)
-      ..lineTo(rect.topLeft.dx + clipSize, rect.topLeft.dy)
-      ..lineTo(rect.topRight.dx - clipSize, rect.topRight.dy)
-      ..lineTo(rect.centerRight.dx, rect.centerRight.dy)
-      ..lineTo(rect.bottomRight.dx - clipSize, rect.bottomRight.dy)
-      ..lineTo(rect.bottomLeft.dx + clipSize, rect.bottomLeft.dy)
-      ..close();
   }
 }

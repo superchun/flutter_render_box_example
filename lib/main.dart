@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:render_box/hexagonal_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,15 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: HexagonalButton(
-          color: Colors.lightBlueAccent,
-          clipSize: 20,
-          padding: const EdgeInsets.all(4),
-          onTap: () {},
-          child: const Text('自定义之旅'),
-        ),
-      ),
+      body: Container(color: Colors.black),
     );
   }
 }
